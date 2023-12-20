@@ -1,7 +1,14 @@
 module.exports = {
   onPreBuild: ({ utils }) => {
-    const currentProject = 'bike-store';
-    const projectHasChanged = false;
+    const currentProject = process.env.PROJECT_NAME;
+    const lastDeployedCommit = process.env.CACHED_COMMIT_REF;
+    const latestCommit = 'HEAD';
+
+    const projectHasChanged = projectChanged(
+      currentProject,
+      lastDeployedCommit,
+      latestCommit
+    );
 
     if (!projectHasChanged) {
       utils.build.cancelBuild(
@@ -10,3 +17,13 @@ module.exports = {
     }
   },
 };
+
+function projectChanged(currentProject, fromHash, toHash) {
+  const execSync = require('child_process').execSync;
+
+  const getAffected = `npx --silent nx print-affected --base=${fromHash} --head=${toHash}`;
+  const output = execSync(getAffected).toString();
+  const changedProjects = JSON.parse(output).projects;
+
+  return changedProjects.some((project) => project === currentProject);
+}
