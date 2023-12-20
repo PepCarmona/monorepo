@@ -2,7 +2,10 @@
   "name": "@monorepo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "cooklens:serve": "nx serve cooklens",
+    "cooklens:build": "nx build cooklens"
+  },
   "private": true,
   "dependencies": {
     "vue": "^3.3.4",
