@@ -1,8 +1,8 @@
 {
-  "name": "monorepo",
+  "name": "cooklens",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/monorepo/src",
+  "sourceRoot": "apps/cooklens/src",
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
@@ -13,7 +13,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/monorepo",
+        "outputPath": "dist/apps/cooklens",
         "skipTypeCheck": true
       },
       "configurations": {
@@ -29,15 +29,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "monorepo:build"
+        "buildTarget": "cooklens:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "monorepo:build:development",
+          "buildTarget": "cooklens:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "monorepo:build:production",
+          "buildTarget": "cooklens:build:production",
           "hmr": false
         }
       }
@@ -46,14 +46,14 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "monorepo:build"
+        "buildTarget": "cooklens:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "monorepo:build:development"
+          "buildTarget": "cooklens:build:development"
         },
         "production": {
-          "buildTarget": "monorepo:build:production"
+          "buildTarget": "cooklens:build:production"
         }
       }
     },
@@ -61,7 +61,7 @@
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../coverage/apps/monorepo"
+        "reportsDirectory": "../../coverage/apps/cooklens"
       }
     }
   }

@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/monorepo',
+  cacheDir: '../../node_modules/.vite/apps/cooklens',
 
   server: {
     port: 4200,
@@ -25,7 +25,7 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/monorepo',
+    outDir: '../../dist/apps/cooklens',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
@@ -42,7 +42,7 @@ export default defineConfig({
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/monorepo',
+      reportsDirectory: '../../coverage/apps/cooklens',
       provider: 'v8',
     },
   },
