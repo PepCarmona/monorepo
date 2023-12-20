@@ -8,8 +8,15 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/apps/cooklens',
 
   server: {
-    port: 4200,
+    port: 8080,
     host: 'localhost',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000/.netlify/functions',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
 
   preview: {
@@ -18,11 +25,6 @@ export default defineConfig({
   },
 
   plugins: [vue(), nxViteTsPaths()],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
 
   build: {
     outDir: '../../dist/apps/cooklens',

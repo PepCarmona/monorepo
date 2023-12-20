@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "cooklens:serve": "nx serve cooklens",
-    "cooklens:build": "nx build cooklens"
+    "cooklens:build": "nx build cooklens",
+    "format": "prettier --config .prettierrc \"**/*.{js,json,ts,tsx,css,vue}\" --write"
   },
   "private": true,
   "dependencies": {
