@@ -3,16 +3,21 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "cooklens:serve": "nx serve cooklens",
-    "cooklens:build": "nx build cooklens",
+    "cooklens:serve": "netlify dev --filter cooklens --targetPort 8080",
+    "cooklens:serve:site": "nx serve cooklens",
+    "cooklens:serve:functions": "netlify functions:serve --filter cooklens --functions functions --port 4000",
+    "cooklens:build": "netlify build --filter cooklens",
+    "cooklens:build:site": "nx build cooklens",
     "format": "prettier --config .prettierrc \"**/*.{js,json,ts,tsx,css,vue}\" --write"
   },
   "private": true,
   "dependencies": {
+    "mongoose": "^8.0.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@netlify/functions": "^2.4.1",
     "@nx/devkit": "17.2.6",
     "@nx/eslint": "17.2.6",
     "@nx/eslint-plugin": "17.2.6",
@@ -38,6 +43,7 @@
     "eslint-plugin-playwright": "^0.15.3",
     "eslint-plugin-vue": "^9.16.1",
     "jsdom": "~22.1.0",
+    "netlify-cli": "^17.10.1",
     "nx": "17.2.6",
     "prettier": "^2.6.2",
     "sass": "1.62.1",

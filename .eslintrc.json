@@ -23,9 +23,11 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": ["*.ts", "*.tsx", "*.vue"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
